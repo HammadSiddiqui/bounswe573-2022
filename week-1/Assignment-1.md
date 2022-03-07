@@ -12,7 +12,13 @@ Some of the widely used git commands are as follows:
 - `git push` : This command is used push the latest changes to a remote  server
 
 #### Wikidata:  
-Wikidata is a crowdsourced, mega information site, (like wikipedia). It countains knowledgebase to enumerous amounts of topics which are maintained by the users in the wikidata community.
+[Wikidata](https://www.wikidata.org) is a crowdsourced, mega information site, (like wikipedia). It contains knowledgebase to enumerous amounts of topics which are maintained by the users in the wikidata community.
 
 An example page about Git on Wiki can be found below:
 [Git on Wikidata](https://www.wikidata.org/wiki/Q186055)
+
+The Wikidata also offers access to the data over an API. [The link to the Wikidata API](https://www.wikidata.org/wiki/Wikidata:Data_access)
+
+Like Git, wikidata also keeps a track of the version of a particular topic. For e.g, we can look at the history of the information update on the topic of [Racism on Wikidata](https://www.wikidata.org/w/index.php?title=Q8461&action=history). As you can see, it mentions the changes, datetime and the author who did the changes.
+
+Furthermore, the API allows access to bots, which can perform repeated tasks automatically, for e.g. fetching informaiton, changing informaiton, etc. However, to avoid the abuse of this feature, the API has a rate-limitter in place to tackle spam.
