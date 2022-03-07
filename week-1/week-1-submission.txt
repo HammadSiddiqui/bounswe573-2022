@@ -1,0 +1,11 @@
+1. URI of your repository 
+https://github.com/HammadSiddiqui/bounswe573-2022
+
+
+2. Links to the issues you created
+https://github.com/HammadSiddiqui/bounswe573-2022/issues
+
+
+3. Links to the Wiki pages you created.
+https://www.wikidata.org/wiki/Q111144377
+https://github.com/HammadSiddiqui/bounswe573-2022/tree/main/week-1
