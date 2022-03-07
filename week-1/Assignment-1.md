@@ -22,3 +22,6 @@ The Wikidata also offers access to the data over an API. [The link to the Wikida
 Like Git, wikidata also keeps a track of the version of a particular topic. For e.g, we can look at the history of the information update on the topic of [Racism on Wikidata](https://www.wikidata.org/w/index.php?title=Q8461&action=history). As you can see, it mentions the changes, datetime and the author who did the changes.
 
 Furthermore, the API allows access to bots, which can perform repeated tasks automatically, for e.g. fetching informaiton, changing informaiton, etc. However, to avoid the abuse of this feature, the API has a rate-limitter in place to tackle spam.
+
+People can also create new Wikipages. For instance, I create a wikipage about myself: https://www.wikidata.org/wiki/Q111144377
+My page has been assigned a persistent ID of Q111144377. This is unique for every page.
