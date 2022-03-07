@@ -11,5 +11,5 @@ The repo also consists of weekly activity report that lists the tasks done for e
 
 New tasks and changes to the documentation is reported and logged via the GitHub issues management system with the relevant tag. 
 
-Please refer to the weekly folders for an in-depth review on this coursework.
+Please refer to the **weekly** folders for an in-depth review on this coursework.
 

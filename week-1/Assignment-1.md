@@ -4,6 +4,13 @@ Git is one of a version control and management system that is extensively used i
 
 The beauty of version control management system like Git is that it can be used beyond software development to control versions for other types of digital assets like word documents, or graphic designs.
 
+Some of the widely used git commands are as follows:
+
+- `git init` : This command is used initialize a new git repository
+- `git add` : This command is used register objects and files into the newly initialized git repository
+- `git commit` : This command is used register changes that were made in the objects and/or files. This is where git creates a new version of the changes, called the commit "hash".
+- `git push` : This command is used push the latest changes to a remote  server
+
 #### Wikidata:  
 Wikidata is a crowdsourced, mega information site, (like wikipedia). It countains knowledgebase to enumerous amounts of topics which are maintained by the users in the wikidata community.
 
