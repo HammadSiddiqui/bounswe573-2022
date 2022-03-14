@@ -13,3 +13,24 @@ New tasks and changes to the documentation is reported and logged via the GitHub
 
 Please refer to the **weekly** folders for an in-depth review on this coursework.
 
+
+
+Continuous Activity Report
+
+Week 1
+
+– Task : Create GitHub Repo and explore Wikidata
+
+– Duration : 2 hour
+
+– Type of work : Research and Documentation
+
+
+Week 2
+
+– Task : Create a basic web application using Django
+
+– Duration : 5 hours
+
+– Type of work : Development
+
