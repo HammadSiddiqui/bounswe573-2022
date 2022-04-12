@@ -34,3 +34,47 @@ Week 2
 
 – Type of work : Development
 
+
+Week 3
+
+– Task : Requirements Elicitation
+
+– Duration : 5 hours
+
+– Type of work : Research and Documentation
+
+
+Week 4
+
+– Task : Requirements Elicitation with further clarification + SRS Document preparation
+
+– Duration : 4 hours
+
+– Type of work : Research and Documentation
+
+
+Week 5
+
+– Task : Mock up designs
+
+– Duration : 6 hours
+
+– Type of work : Design
+
+
+Week 6
+
+– Task : Mock up enhancement following the feedback
+
+– Duration : 5 hours
+
+– Type of work : Design
+
+
+Week 7
+
+– Task : Milestone 1 Delivery: SRS document, Project Plan, Mockups and Architecure Design
+
+– Duration : 5 hours
+
+– Type of work : Design
