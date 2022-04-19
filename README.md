@@ -78,3 +78,11 @@ Week 7
 – Duration : 5 hours
 
 – Type of work : Design
+
+Week 7
+
+– Task : Project Plan: Environment Setup and User Authentication System
+
+– Duration : 5 hours
+
+– Type of work : Development and Debugging
