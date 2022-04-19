@@ -24,6 +24,8 @@ week-2/myvenv
 ENV/ 
 env.bak/ 
 venv.bak/
+colearning/.venv
+colearning/.env
 
 # mypy 
 .mypy_cache/ 
