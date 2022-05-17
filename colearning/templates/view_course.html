@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<article class="post">
+    {% if course.published_date %}
+    <time class="date">
+        {{ course.published_date }}
+    </time>
+    {% endif %}
+    <h2>{{ course.title }}</h2>
+    <p>{{ course.text|linebreaksbr }}</p>
+</article>
+{% endblock %}
