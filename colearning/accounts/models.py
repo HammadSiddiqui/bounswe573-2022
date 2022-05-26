@@ -7,6 +7,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=100)
     website = models.URLField(blank=True)
     bio = models.TextField()
+    #majlis = models.ManyToManyField('accounts.Majlis', related_name='majlis')
 
     def __str__(self):
         return str(self.user)
@@ -20,7 +21,7 @@ class Tag(models.Model):
 
 
 #Course Model
-class Course(models.Model):
+class Majlis(models.Model):
     class Meta:
         ordering = ["-publish_date"]
 
@@ -33,7 +34,7 @@ class Course(models.Model):
     date_modified = models.DateTimeField(auto_now=True)
     publish_date = models.DateTimeField(blank=True, null=True)
     published = models.BooleanField(default=False)
-
+    people = models.ManyToManyField('Profile', related_name="people")
     author = models.ForeignKey(Profile, on_delete=models.PROTECT)
     tags = models.ManyToManyField(Tag, blank=True)
 
@@ -43,3 +44,4 @@ class Course(models.Model):
 
     def __str__(self):
             return self.title
+
