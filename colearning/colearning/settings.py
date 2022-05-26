@@ -14,6 +14,11 @@ from pathlib import Path
 import os
 import sys
 
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -81,26 +86,25 @@ WSGI_APPLICATION = 'colearning.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if (env('environment') == "DEV"):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
-
-
+else:
 #Using mysql
-# DATABASES = {
-#     'default': {
-#         'ENGINE'  : 'django.db.backends.mysql',
-#         'NAME'    : 'mytestdb',
-#         'USER'    : 'test',
-#         'PASSWORD': 'Secret_1234',
-#         'HOST'    : 'localhost',
-#         'PORT'    : '3306',
-#     }
-# }
+    DATABASES = {
+        'default': {
+            'ENGINE'  : 'django.db.backends.mysql',
+            'NAME'    : 'mytestdb',
+            'USER'    : env("DB_USER"),
+            'PASSWORD': env("DB_PASS"),
+            'HOST'    : 'localhost',
+            'PORT'    : '3306',
+        }
+    }
 
 
 # Password validation
