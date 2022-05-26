@@ -34,3 +34,6 @@ services:
       - environment=PROD
     depends_on:
       - db
+volumes:
+  static_volume:
+  postgres_data:
