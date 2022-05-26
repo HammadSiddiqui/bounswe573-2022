@@ -20,5 +20,6 @@ services:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - environment=PROD
     depends_on:
       - db
