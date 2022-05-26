@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User #extending the django user model
+from django.utils import timezone
 
 #User Profile information extending the vanilla Django user model.
 class Profile(models.Model):
@@ -27,16 +28,16 @@ class Majlis(models.Model):
 
     title = models.CharField(max_length=255, unique=True)
     subtitle = models.CharField(max_length=255, blank=True)
-    slug = models.SlugField(max_length=255, unique=True)
-    body = models.TextField()
+    description = models.TextField()
     meta_description = models.CharField(max_length=150, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     publish_date = models.DateTimeField(blank=True, null=True)
     published = models.BooleanField(default=False)
     people = models.ManyToManyField('Profile', related_name="people")
-    author = models.ForeignKey(Profile, on_delete=models.PROTECT)
+    #author = models.ForeignKey(Profile, on_delete=models.PROTECT)
     tags = models.ManyToManyField(Tag, blank=True)
+
 
     def publish(self):
         self.published_date = timezone.now()
@@ -44,4 +45,8 @@ class Majlis(models.Model):
 
     def __str__(self):
             return self.title
+
+    def __init__(self, *args, **kwargs, ):
+        super().__init__(*args, **kwargs)
+
 

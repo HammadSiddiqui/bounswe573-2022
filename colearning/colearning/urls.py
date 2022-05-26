@@ -27,5 +27,6 @@ urlpatterns = [
     path("", views.MajlisListView, name="home"),
    # path('viewmajlis/<int:pk>/', views.MajlisListView, name='view_majlis'),
     path('create_majlis/', views.CreateMajlisView, name='create_majlis'),
+    path('enrol/', views.EnrollMajlisView, name='enroll'),
 
 ]

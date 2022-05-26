@@ -15,9 +15,19 @@
     <div class="col-md-4">
         <form action="{% url 'create_majlis' %}" method="post">
             {% csrf_token %}
-            <div class="form-group">
-                <input type="text" class="form-control" id="TitleInput" aria-describedby="emailHelp" placeholder="Enter Title">
+            {% for field in form %}
+            <div class="form-group mb-4 mt-5">
+                {{field}}
+                <input type="text" class="form-control" id="TitleInput" placeholder="Enter Title" required>
             </div>
+            {% endfor %}
+<!--            <div class="form-group mb-4">-->
+<!--                <input type="text" class="form-control" id="SubTitleInput" placeholder="Enter Sub Title" required>-->
+<!--            </div>-->
+
+<!--            <div class="form-group mb-4">-->
+<!--                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Enter Some Desciption about your Majlis" required></textarea>-->
+<!--            </div>-->
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
