@@ -98,7 +98,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'dbtest',
+            'NAME': 'postgres',
             'USER': 'postgres',
             'PASSWORD': '1234',
             'HOST': '127.0.0.1',
@@ -106,7 +106,7 @@ else:
         }
     }
 
-
+CORS_ALLOWED_ORIGINS = env("CORS_ALLOWED_ORIGINS").split(" ")
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 

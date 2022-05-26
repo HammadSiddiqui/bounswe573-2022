@@ -16,6 +16,7 @@ RUN apk update \
 COPY requirements.txt /app/requirements.txt
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install psycopg2
 
 
 # copy project
