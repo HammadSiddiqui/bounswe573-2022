@@ -97,12 +97,12 @@ else:
 #Using mysql
     DATABASES = {
         'default': {
-            'ENGINE'  : 'django.db.backends.mysql',
-            'NAME'    : 'mytestdb',
-            'USER'    : env("DB_USER"),
-            'PASSWORD': env("DB_PASS"),
-            'HOST'    : 'localhost',
-            'PORT'    : '3306',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'dbtest',
+            'USER': 'postgres',
+            'PASSWORD': '1234',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
         }
     }
 
