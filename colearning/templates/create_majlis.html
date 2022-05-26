@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Majlis{% endblock %}
+
+
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-md-12 mt-5 text-center">
+        <h1>Create Majlis</h1>
+    </div>
+
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form action="{% url 'create_majlis' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" id="TitleInput" aria-describedby="emailHelp" placeholder="Enter Title">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

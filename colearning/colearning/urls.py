@@ -24,9 +24,8 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path("profile/", TemplateView.as_view(template_name="profile.html"), name="profile"),
     path("profile/edit", TemplateView.as_view(template_name="edit_profile.html"), name="edit_profile"),
-    path("", views.MajlisListView, name="home"), # new
-    #path("", TemplateView.as_view(template_name="home.html"), name="home"), # new
+    path("", views.MajlisListView, name="home"),
    # path('viewmajlis/<int:pk>/', views.MajlisListView, name='view_majlis'),
-    path('create_majlis/', TemplateView.as_view(template_name="create_majlis.html"), name='create_majlis'),
+    path('create_majlis/', views.CreateMajlisView, name='create_majlis'),
 
 ]
