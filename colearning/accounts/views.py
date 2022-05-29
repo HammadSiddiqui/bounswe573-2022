@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Majlis
 from .forms import MajlisForm
@@ -31,9 +31,11 @@ def CreateMajlisView(request):
     form = MajlisForm()
     # check whether it's valid:
     if request.method == 'POST':
+        print(request.POST)
+        form = MajlisForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('colearning.home')
+            return redirect('home')
     else:
         print(form)
        # process the data in form.cleaned_data as required

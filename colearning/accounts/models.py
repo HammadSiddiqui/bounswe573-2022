@@ -26,17 +26,17 @@ class Majlis(models.Model):
     class Meta:
         ordering = ["-publish_date"]
 
-    title = models.CharField(max_length=255, unique=True)
-    subtitle = models.CharField(max_length=255, blank=True)
+    title = models.CharField(max_length=255, unique=False)
+   # subtitle = models.CharField(max_length=255, blank=True)
     description = models.TextField()
-    meta_description = models.CharField(max_length=150, blank=True)
+  #  meta_description = models.CharField(max_length=150, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     publish_date = models.DateTimeField(blank=True, null=True)
-    published = models.BooleanField(default=False)
-    people = models.ManyToManyField('Profile', related_name="people")
+   # published = models.BooleanField(default=False)
+   # people = models.ManyToManyField('Profile', related_name="people")
     #author = models.ForeignKey(Profile, on_delete=models.PROTECT)
-    tags = models.ManyToManyField(Tag, blank=True)
+   # tags = models.ManyToManyField(Tag, blank=True)
 
 
     def publish(self):
