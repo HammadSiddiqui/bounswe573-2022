@@ -1,7 +1,7 @@
 # accounts/views.py
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
@@ -120,3 +120,7 @@ def PostView(request, pk, post_id):
 
     return render(request, 'view_post.html', {'post' : post, 'majlis': majlis, 'form': form})
 
+@login_required
+def ProfileView(request, username):
+     user = User.objects.get(username=username)
+     return render(request, 'profile.html', {'user': user})

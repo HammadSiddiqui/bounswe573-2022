@@ -24,8 +24,9 @@
                     {% endif%}
                     <div class="mt-5">
                         <h4>Other members in this Majlis:  </h4>
-                        <p>{% for user in majlis.people.all %}
-                            {{user}} <br>
+                        <p>
+                            {% for user in majlis.people.all %}
+                            <a href="{% url 'view_profile' user %}">{{user}}</a>  <br>
                             {% endfor %}
                         </p>
 

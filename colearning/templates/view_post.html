@@ -44,7 +44,7 @@
 
     </div>
     {% endfor %}
-
+    {% if user in majlis.people.all %}
     <div class="row ">
         <div class="col-md-12">
             <form action="{% url 'view_post' majlis.id post.id %}" method="post">
@@ -60,6 +60,7 @@
             </form>
         </div>
     </div>
+    {% endif %}
 </div>
 </div>
 {% endblock %}

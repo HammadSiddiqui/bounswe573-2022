@@ -23,6 +23,7 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path("profile/", TemplateView.as_view(template_name="profile.html"), name="profile"),
+    path("viewprofile/<str:username>", views.ProfileView, name="view_profile"),
     path("profile/edit", TemplateView.as_view(template_name="edit_profile.html"), name="edit_profile"),
     path("", views.MajlisListView, name="home"),
     path('viewmajlis/<int:pk>/', views.ViewMajlis, name='view_majlis'),
