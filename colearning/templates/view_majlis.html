@@ -12,12 +12,16 @@
                     <h1 class="display-5 fw-bold">{{ majlis.title }}</h1>
                     <p class="col-md-8 fs-4">{{ majlis.description|linebreaksbr }}</p>
                     {% if user not in majlis.people.all %}
-                        <button class="btn btn-primary btn-lg" type="button">Enroll</button>
+                        <a class="btn btn-primary btn-lg" type="button" href="{% url 'enroll' majlis.id%}">Join Majlis</a>
                     {% else %}
+
                     <div class="mt-5">
-                        <span>You are already enrolled</span>
+                        <span>You are already a part of this Majlis</span> <br>
+                        <button class="mt-4 btn btn-primary btn-lg" type="button">Create Post</button>
+                        <a href="{% url 'unenroll' majlis.id %}" class="mt-4 btn btn-danger btn-lg" type="button">Leave Majlis</a>
                     </div>
                     {% endif%}
+
                 </div>
             </div>
         </div>

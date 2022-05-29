@@ -28,5 +28,6 @@ urlpatterns = [
     path('viewmajlis/<int:pk>/', views.ViewMajlis, name='view_majlis'),
     path('create_majlis/', views.CreateMajlisView, name='create_majlis'),
     path('enrol/<int:pk>/', views.EnrollMajlisView, name='enroll'),
+     path('unenrol/<int:pk>/', views.UnenrollMajlisView, name='unenroll'),
 
 ]

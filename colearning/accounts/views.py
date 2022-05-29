@@ -25,7 +25,6 @@ def MajlisListView(request):
 
 def ViewMajlis(request, pk):
     majlis = get_object_or_404(Majlis, pk=pk)
-    print("Yelo",majlis.people.all())
     return render(request, 'view_majlis.html', {'majlis': majlis})
 
 
@@ -44,7 +43,7 @@ def CreateMajlisView(request):
             majlisObj.author  = request.user
             majlisObj.save()
             majlisObj.people.add(request.user)
-            print(majlisObj.id)
+
             return redirect('view_majlis', pk=majlisObj.id)
             #return redirect('home')
     else:
@@ -56,6 +55,15 @@ def CreateMajlisView(request):
 
 
 @login_required
-def EnrollMajlisView(request):
-    #print(request)
-    return HttpResponseRedirect('/enrolled/')
+def EnrollMajlisView(request, pk):
+    print(request)
+    majlis = get_object_or_404(Majlis, pk=pk)
+    majlis.people.add(request.user)
+    return redirect('view_majlis', pk=majlis.id)
+
+@login_required
+def UnenrollMajlisView(request, pk):
+    print(request)
+    majlis = get_object_or_404(Majlis, pk=pk)
+    majlis.people.remove(request.user)
+    return redirect('view_majlis', pk=majlis.id)
