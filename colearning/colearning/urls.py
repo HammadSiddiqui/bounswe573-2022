@@ -20,7 +20,7 @@ from accounts import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("accounts/", include("accounts.urls")),  # new
+    path("accounts/", include("accounts.urls")),
     path('accounts/', include('django.contrib.auth.urls')),
     path("profile/", TemplateView.as_view(template_name="profile.html"), name="profile"),
     path("profile/edit", TemplateView.as_view(template_name="edit_profile.html"), name="edit_profile"),
@@ -28,6 +28,8 @@ urlpatterns = [
     path('viewmajlis/<int:pk>/', views.ViewMajlis, name='view_majlis'),
     path('create_majlis/', views.CreateMajlisView, name='create_majlis'),
     path('enrol/<int:pk>/', views.EnrollMajlisView, name='enroll'),
-     path('unenrol/<int:pk>/', views.UnenrollMajlisView, name='unenroll'),
+    path('unenrol/<int:pk>/', views.UnenrollMajlisView, name='unenroll'),
+    path('viewmajlis/<int:pk>/createpost/', views.CreatePostView, name='create_post'),
+    path('viewmajlis/<int:pk>/viewpost/<int:post_id>/', views.PostView, name='view_post'),
 
 ]

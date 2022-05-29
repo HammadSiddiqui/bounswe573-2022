@@ -43,11 +43,13 @@
                         {% if user not in item.people.all %}
                         <div class="mt-5">
                             <a class="btn btn-success mt-3" href="{% url 'enroll' item.id%}" role="button">Join Majlis</a>
+                            <br>
                             <span>Total people: {{item.people.count}}</span>
                         </div>
                         {% else %}
                         <div class="mt-5">
-                            <span>You are already in this Majlis</span>
+                            <span>You are already in this Majlis</span> <br>
+                            <span>Total people: {{item.people.count}}</span>
                         </div>
                         {% endif%}
                     {% else %}

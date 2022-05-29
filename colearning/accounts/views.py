@@ -7,8 +7,8 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Majlis
-from .forms import MajlisForm
+from .models import Majlis, Post, Comment
+from .forms import MajlisForm, PostForm, CommentForm
 
 class SignUpView(generic.CreateView):
     form_class = UserCreationForm
@@ -67,3 +67,59 @@ def UnenrollMajlisView(request, pk):
     majlis = get_object_or_404(Majlis, pk=pk)
     majlis.people.remove(request.user)
     return redirect('view_majlis', pk=majlis.id)
+
+
+#View to add a new post in a majlis
+@login_required
+def CreatePostView(request, pk):
+    form = PostForm()
+    # check whether it's valid:
+    if request.method == 'POST':
+        #print(request.user)
+        form = PostForm(request.POST)
+        if form.is_valid():
+            #form.people = request.user #UserProfile.objects.get(user=self.request.user)  # use your own profile here
+            PostObj = form.save(commit=False)
+            PostObj.author  = request.user
+            PostObj.save()
+            majlis = get_object_or_404(Majlis, pk=pk)
+            majlis.posts.add(PostObj)
+
+            return redirect('view_majlis', pk=pk)
+            #return redirect('home')
+    else:
+        #print(form)
+        context = {"form" : form}
+    return render(request, 'create_post.html', {'form': form, 'majlis_id': pk})
+
+
+
+@login_required
+def PostView(request, pk, post_id):
+    print(request)
+    post = get_object_or_404(Post, pk=post_id)
+    return render(request, 'view_post.html', {'post' : post})
+
+
+##ADD A NEW COMMENT View
+@login_required
+def CreateCommentView(request, pk):
+    form = CommentForm()
+    # check whether it's valid:
+    if request.method == 'POST':
+        #print(request.user)
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            #form.people = request.user #UserProfile.objects.get(user=self.request.user)  # use your own profile here
+            commentObj = form.save(commit=False)
+            commentObj.author  = request.user
+            commentObj.save()
+            post = get_object_or_404(Post, pk=pk)
+            post.comments.add(commentObj)
+
+            return redirect('view_majlis', pk=pk)
+            #return redirect('home')
+    else:
+        #print(form)
+        context = {"form" : form}
+    return render(request, 'create_post.html', {'form': form, 'majlis_id': pk})

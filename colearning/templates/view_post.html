@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Majlis Post{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12  mt-3">
+            <div class="h-100 p-5 bg-light rounded-3">
+                <h2>{{post.title}}</h2>
+                <p>{{post.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

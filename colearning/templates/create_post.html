@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Majlis{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Create a New Post in this Majlis</h1>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'create_post' majlis_id %}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group mb-4 mt-5">
+                    {{ field.label_tag }} {{field}}
+                    <!-- <input type="text" class="form-control" id="TitleInput" placeholder="Enter Title" required> -->
+                </div>
+                {% endfor %}
+                <!--            <div class="form-group mb-4">-->
+                <!--                <input type="text" class="form-control" id="SubTitleInput" placeholder="Enter Sub Title" required>-->
+                <!--            </div>-->
+
+                <!--            <div class="form-group mb-4">-->
+                <!--                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Enter Some Desciption about your Majlis" required></textarea>-->
+                <!--            </div>-->
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
