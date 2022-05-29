@@ -96,30 +96,27 @@ def CreatePostView(request, pk):
 
 @login_required
 def PostView(request, pk, post_id):
-    print(request)
-    post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'view_post.html', {'post' : post})
-
-
-##ADD A NEW COMMENT View
-@login_required
-def CreateCommentView(request, pk):
+    #to add a comment
+    print("INSIDE POST NIEW")
     form = CommentForm()
-    # check whether it's valid:
     if request.method == 'POST':
-        #print(request.user)
+        print("inside post request for comment")
         form = CommentForm(request.POST)
         if form.is_valid():
             #form.people = request.user #UserProfile.objects.get(user=self.request.user)  # use your own profile here
             commentObj = form.save(commit=False)
-            commentObj.author  = request.user
+            commentObj.commented_by  = request.user
             commentObj.save()
-            post = get_object_or_404(Post, pk=pk)
+            post = get_object_or_404(Post, pk=post_id)
             post.comments.add(commentObj)
 
-            return redirect('view_majlis', pk=pk)
-            #return redirect('home')
+            return redirect('view_post', pk=pk, post_id=post_id)
+
     else:
-        #print(form)
         context = {"form" : form}
-    return render(request, 'create_post.html', {'form': form, 'majlis_id': pk})
+    #fetch info about the post and the majlis it belongs
+    post = get_object_or_404(Post, pk=post_id)
+    majlis = get_object_or_404(Majlis, pk=pk)
+
+    return render(request, 'view_post.html', {'post' : post, 'majlis': majlis, 'form': form})
+

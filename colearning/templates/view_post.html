@@ -5,6 +5,23 @@
 {% block content %}
 
 <div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="p-2 mb-4 text-white bg-dark rounded-3">
+                <div class="container-fluid py-5">
+                    <h1 class="display-5 fw-bold">{{ majlis.title }}</h1>
+                    <p class="col-md-8 fs-4">{{ majlis.description|linebreaksbr }}</p>
+                    {% if user not in majlis.people.all %}
+                    <a class="btn btn-primary btn-lg" type="button" href="{% url 'enroll' majlis.id%}">Join Majlis</a>
+
+                    {% endif%}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-12  mt-3">
             <div class="h-100 p-5 bg-light rounded-3">
@@ -13,5 +30,36 @@
             </div>
         </div>
     </div>
+
+    {% for comment in post.comments.all %}
+    <div class="row">
+
+        <div class="col-md-12  mt-3">
+            <div class="h-100 p-5 rounded-3">
+                <p>{{comment.comment}}</p>
+                <br>
+                <p> - Comment by {{comment.commented_by}}</p>
+                </div>
+        </div>
+
+    </div>
+    {% endfor %}
+
+    <div class="row ">
+        <div class="col-md-12">
+            <form action="{% url 'view_post' majlis.id post.id %}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group mb-4 mt-5">
+                    {{ field.label_tag }} <br> {{field}}
+                </div>
+                {% endfor %}
+
+
+                <button type="submit" class="btn btn-primary ">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
 </div>
 {% endblock %}

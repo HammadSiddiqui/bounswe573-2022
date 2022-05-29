@@ -30,6 +30,7 @@ urlpatterns = [
     path('enrol/<int:pk>/', views.EnrollMajlisView, name='enroll'),
     path('unenrol/<int:pk>/', views.UnenrollMajlisView, name='unenroll'),
     path('viewmajlis/<int:pk>/createpost/', views.CreatePostView, name='create_post'),
+    #path('viewmajlis/<int:pk>/viewpost/<int:post_id>/create_comment', views.PostView, name='create_comment'),
     path('viewmajlis/<int:pk>/viewpost/<int:post_id>/', views.PostView, name='view_post'),
 
 ]
