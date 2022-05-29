@@ -34,8 +34,8 @@ class Majlis(models.Model):
     date_modified = models.DateTimeField(auto_now=True)
     publish_date = models.DateTimeField(blank=True, null=True)
    # published = models.BooleanField(default=False)
-   # people = models.ManyToManyField('Profile', related_name="people")
-    #author = models.ForeignKey(Profile, on_delete=models.PROTECT)
+    people = models.ManyToManyField('Profile', related_name="people")
+    author = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
    # tags = models.ManyToManyField(Tag, blank=True)
 
 

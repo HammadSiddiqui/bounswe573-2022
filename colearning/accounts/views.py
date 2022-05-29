@@ -31,10 +31,13 @@ def CreateMajlisView(request):
     form = MajlisForm()
     # check whether it's valid:
     if request.method == 'POST':
-        print(request.POST)
+        print(request.user)
         form = MajlisForm(request.POST)
         if form.is_valid():
-            form.save()
+            #form.people = request.user #UserProfile.objects.get(user=self.request.user)  # use your own profile here
+            majlisObj = form.save(commit=False)
+            majlisObj.author  = request.user
+            majlisObj.save()
             return redirect('home')
     else:
         print(form)
