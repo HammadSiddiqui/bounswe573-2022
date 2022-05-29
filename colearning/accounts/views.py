@@ -23,6 +23,11 @@ def MajlisListView(request):
     print(majlis)
     return render(request, 'home.html', {'majlis': majlis})
 
+def ViewMajlis(request, pk):
+    majlis = get_object_or_404(Majlis, pk=pk)
+    print("Yelo",majlis.people.all())
+    return render(request, 'view_majlis.html', {'majlis': majlis})
+
 
 @login_required
 def CreateMajlisView(request):
@@ -31,21 +36,20 @@ def CreateMajlisView(request):
     form = MajlisForm()
     # check whether it's valid:
     if request.method == 'POST':
-        print(request.user)
+        #print(request.user)
         form = MajlisForm(request.POST)
         if form.is_valid():
             #form.people = request.user #UserProfile.objects.get(user=self.request.user)  # use your own profile here
             majlisObj = form.save(commit=False)
             majlisObj.author  = request.user
             majlisObj.save()
-            return redirect('home')
+            majlisObj.people.add(request.user)
+            print(majlisObj.id)
+            return redirect('view_majlis', pk=majlisObj.id)
+            #return redirect('home')
     else:
-        print(form)
-       # process the data in form.cleaned_data as required
-       # ...
-       # redirect to a new URL:
-    # form.publish()
-    context = {"form" : form}
+        #print(form)
+        context = {"form" : form}
 
 
     return render(request, 'create_majlis.html', {'form': form})
@@ -53,5 +57,5 @@ def CreateMajlisView(request):
 
 @login_required
 def EnrollMajlisView(request):
-    print(request)
+    #print(request)
     return HttpResponseRedirect('/enrolled/')

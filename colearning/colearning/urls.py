@@ -25,8 +25,8 @@ urlpatterns = [
     path("profile/", TemplateView.as_view(template_name="profile.html"), name="profile"),
     path("profile/edit", TemplateView.as_view(template_name="edit_profile.html"), name="edit_profile"),
     path("", views.MajlisListView, name="home"),
-   # path('viewmajlis/<int:pk>/', views.MajlisListView, name='view_majlis'),
+    path('viewmajlis/<int:pk>/', views.ViewMajlis, name='view_majlis'),
     path('create_majlis/', views.CreateMajlisView, name='create_majlis'),
-    path('enrol/', views.EnrollMajlisView, name='enroll'),
+    path('enrol/<int:pk>/', views.EnrollMajlisView, name='enroll'),
 
 ]

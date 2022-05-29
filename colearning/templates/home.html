@@ -26,7 +26,7 @@
 
         {% for item in majlis %}
 
-        <div class="col-md-4" style="cursor: pointer;" onclick="window.location='http://www.google.com';">
+        <div class="col-md-4" style="cursor: pointer;" onclick="window.location='{% url 'view_majlis' item.id %}';">
             <div class="card p-3 mb-2">
 <!--                <div class="d-flex justify-content-between">-->
 <!--                    <div class="d-flex flex-row align-items-center">-->
@@ -40,10 +40,16 @@
                 <div class="mt-5">
                     <h3 class="heading">{{ item.title }}</h3>
                     {% if user.is_authenticated %}
-                    <div class="mt-5">
-                        <a class="btn btn-success mt-3" href="{% url 'enroll'%}" role="button">Enroll</a>
-                        <span>Other People {{item.people.name}}</span>
-                    </div>
+                        {% if user not in item.people.all %}
+                        <div class="mt-5">
+                            <a class="btn btn-success mt-3" href="{% url 'enroll' item.id%}" role="button">Enroll</a>
+                            <span>Total people: {{item.people.count}}</span>
+                        </div>
+                        {% else %}
+                        <div class="mt-5">
+                            <span>You are already enrolled</span>
+                        </div>
+                        {% endif%}
                     {% else %}
                     <div class="mt-5">
                         <a class="btn btn-success mt-3" href="#" role="button">Sign up to Enroll</a>

@@ -17,7 +17,7 @@
             {% csrf_token %}
             {% for field in form %}
             <div class="form-group mb-4 mt-5">
-                {{field}}
+                {{ field.label_tag }} {{field}}
                <!-- <input type="text" class="form-control" id="TitleInput" placeholder="Enter Title" required> -->
             </div>
             {% endfor %}
