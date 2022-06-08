@@ -79,9 +79,39 @@ Week 7
 
 – Type of work : Design
 
-Week 7
+
+Week 8
 
 – Task : Project Plan: Environment Setup and User Authentication System
+
+– Duration : 5 hours
+
+– Type of work : Development and Debugging
+
+
+Week 9
+
+– Task : Project Plan: Environment Setup and User Authentication System
+
+– Duration : 6 hours
+
+– Type of work : Development and Debugging
+
+
+
+Week 10
+
+– Task : Milestone 2
+
+– Duration : 6 hours
+
+– Type of work : Development and Debugging
+
+
+
+Week 11
+
+– Task : Milestone 2
 
 – Duration : 5 hours
 
